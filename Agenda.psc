@@ -1,6 +1,6 @@
 Algoritmo agenda
 	
-	Definir requisitos, telefono, vnombres, nombre, aux, nombuscar, nomeditar Como Caracter;
+	Definir requisitos, telefono, vnombres, nombre, aux, nombuscar, nomeditar, nomeditar_final Como Caracter;
 	Definir num, tam, i, j Como Entero;
 	Definir encontrado Como Logico;
 	
@@ -58,6 +58,22 @@ Algoritmo agenda
 			3:
 				Escribir "Dime el nombre que quieres editar";
 				Leer nomeditar;
+				Para i=0 Hasta tam-1 Con Paso 1 Hacer
+					aux=vnombres[i];
+					Para j=0 Hasta Longitud(aux) Con Paso 1 Hacer
+						si Subcadena(aux,i,i)=="" Entonces
+							nombre=Subcadena(aux,0,j-1);
+							telefono=Subcadena(aux,j+1,Longitud(aux));
+						FinSi
+					Fin Para
+					si nombre==nomeditar Entonces
+						Escribir "Como lo quieres editar";
+						Leer nomeditar_final;
+						nombre=nomeditar_final;
+						Escribir "Has editado el nombre del contacto a " nombre;
+					FinSi
+				Fin Para
+				
 				
 			4:
 				Escribir "Dime el nombre que quieres eliminar";
